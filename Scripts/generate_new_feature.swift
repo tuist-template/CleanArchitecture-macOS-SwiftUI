@@ -46,9 +46,8 @@ func make_project_file(_ feature_name : String,_ file_path: String,_ has_demo : 
         name: "\(feature_name)Feature",
         product: .staticFramework,
         dependencies: [
-            .Project.Features.CommonFeature,
-        ],
-        \(has_demo ? "hasDemo: true" : "")
+            .Project.Feature.CommonFeature,
+        ]\(has_demo ? ",\n  hasDemo: true" : "")
     )
     """
     write_code_in_file(project_path, file_content)
